@@ -17,11 +17,11 @@ However, the profiler is not intended to be limited only to backward. The long-t
 - FSDP training
 - Transformer-like language models
 
-Initial MVP model: custom TinyGPT-style Transformer LM
-Decoder-only Transformer architecture
-Repeated Transformer blocks with self-attention and MLP layers
-Synthetic token inputs and labels for controlled experiments
-FSDP wrapping at the Transformer block level
+ - Initial MVP model: custom TinyGPT-style Transformer LM
+ - Decoder-only Transformer architecture
+ - Repeated Transformer blocks with self-attention and MLP layers
+ - Synthetic token inputs and labels for controlled experiments
+ - FSDP wrapping at the Transformer block level
 - Initial focus on backward pass
 - All-gather and reduce-scatter events
 - 2 to 4 GPUs
