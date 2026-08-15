@@ -86,11 +86,15 @@ gapscope/
 
 ```bash
 # 1. Build the tracer
-cd tracer && make         
+cd tracer && make          # requires CUDA toolkit (nvcc) with CUPTI
 
-# 2. Run a workload under injection
-CUDA_INJECTION64_PATH=$PWD/tracer/libcupti_trace.so \
+# 2. Run a workload under the tracer
+export NVTX_INJECTION64_PATH=$PWD/tracer/libcupti_trace.so   # CUPTI NVTX capture
+LD_PRELOAD=$PWD/tracer/libcupti_trace.so \
   torchrun --nproc_per_node=2 instrumentation/census_run.py
+
+# On a Slurm cluster, use the template instead:
+#   edit CONFIG in experiments/submit_fsdp.sbatch, then: sbatch experiments/submit_fsdp.sbatch
 
 # 3. Analyze the per-rank trace databases
 python analysis/trace_reader.py trace_rank0.db
