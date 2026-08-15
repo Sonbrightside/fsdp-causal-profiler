@@ -1,0 +1,32 @@
+# --- build artifacts ---
+*.so
+*.o
+tracer/build/
+
+# --- trace databases (hundreds of MB, regenerable) ---
+*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
+
+# --- generated figures / reports ---
+*.png
+*.pdf
+!docs/**/*.png        # allow figures deliberately committed to docs
+
+# --- slurm logs ---
+slurm-*.out
+*.err
+*.log
+
+# --- python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- editors / OS ---
+.vscode/
+.idea/
+.DS_Store
